@@ -57,6 +57,9 @@ router.post('/login', bruteforce.prevent, function (req, res, next) {
           if (!user) { return reject(new Error('INVALID_LOGIN')) }
           resolve(user)
         })(req, res, next)
+      }).catch(err => {
+      	winston.error(err)
+      	return err
       })
     } else {
       throw err

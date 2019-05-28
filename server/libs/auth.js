@@ -168,6 +168,10 @@ module.exports = function (passport) {
           } : {}
         },
         usernameField: 'email',
+        handleErrorsAsFailures: true,
+        failureErrorCallback: (err) => {
+          winston.error(err)
+        },
         passReqToCallback: false
       }, (profile, cb) => {
         profile.provider = 'ldap'
