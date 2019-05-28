@@ -60,6 +60,8 @@ userSchema.statics.processProfile = (profile) => {
     primaryEmail = profile.user.email
   } else if (_.isString(profile.unique_name) && profile.unique_name.length > 5) {
     primaryEmail = profile.unique_name
+  } else if (_.isString(profile.userPrincipalName) && profile.userPrincipalName.length > 5) {
+    primaryEmail = profile.userPrincipalName
   } else {
     return Promise.reject(new Error(lang.t('auth:errors.invaliduseremail')))
   }

@@ -160,7 +160,7 @@ module.exports = function (passport) {
           bindCredentials: appconfig.auth.ldap.bindCredentials,
           searchBase: appconfig.auth.ldap.searchBase,
           searchFilter: appconfig.auth.ldap.searchFilter,
-          searchAttributes: ['displayName', 'name', 'cn', 'mail'],
+          searchAttributes: ['displayName', 'name', 'cn', 'mail', 'userPrincipalName'],
           tlsOptions: (appconfig.auth.ldap.tlsEnabled) ? {
             ca: [
               fs.readFileSync(appconfig.auth.ldap.tlsCertPath)
